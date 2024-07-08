@@ -1,1 +1,27 @@
 
+
+import telebot
+bot=telebot.TeleBot("7100298947:AAFZZi4olBH72a72gLVTEW8sAg-lX6d87Ho")
+
+
+
+#  Функция, обрабатывающая команду/start
+@bot.message_handler(commands=["start"])
+def start(m, res=False):
+   bot.send_message(m.chat.id,  'Я на связи. Напиши мне что-нибудь )')
+
+
+@bot.message_handler(content_types=["text"])
+def handle_text(message):
+    bot.send_message(message.chat.id, 'Вы написали: '+message.text+str(len(message.text)))
+    #for i in range(len(message.text)):
+        #bot.send_message(message.chat.id,message.text[i])
+    if message.text=='Привет':
+        bot.send_message(message.chat.id, 'Здравствуйте')
+    if message.text=='Шутка':
+        bot.send_message(message.chat.id, 'Колобок повесился')
+    if message.text=='Дата моего рождения':
+        bot.send_message(message.chat.id, '15.05.2010')
+    if message.text=='2004':
+        bot.send_message(message.chat.id, 'Вам 20 лет')
+bot.polling(none_stop=True, interval=0)

@@ -1,0 +1,24 @@
+import telebot
+import random
+bot = telebot.TeleBot('7384463250:AAFZVf8C7ngwB6630zHw_HOIhYd2MlgpZsc')
+global qwe
+qwe=random.randint(0, 101)
+@bot.message_handler(command=["start"])
+def start(m,res=False):
+    bot.send_message(m.chat.id,'Сыграем в игру')
+@bot.message_handler(command=["help"])
+def start(m,res=False):
+    bot.send_message(m.chat.id,'Напиши мне, я отвечу')
+bot.message_handler(content_types=["text"])
+def handel_text(message):
+    global qwe
+    if (int(message.text)==qwe):
+        bot.send_message(message.chat.id, 'Вы победили')
+    elif (int(message.text)!=qwe):
+        bot.send_message(message.chat.id, 'Мимо')
+        if (int(message.text)<<qwe):
+            bot.send_message(message.chat.id, 'Больше')
+        if (int(message.text)>>qwe):
+            bot.send_message(message.chat.id, 'Меньше')
+    
+bot.polling(none_stop=True, interval=0)   

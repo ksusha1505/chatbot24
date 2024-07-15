@@ -1,0 +1,68 @@
+from aiogram import Bot, Dispatcher
+from aiogram.filters import Command
+from aiogram.types import Message
+BOT_TOKEN = '7384463250:AAFZVf8C7ngwB6630zHw_HOIhYd2MlgpZsc'
+bot = Bot(token=BOT_TOKEN)
+dp = Dispatcher()
+Oven1, Oven2='21.03'.split('.')
+Oven3, Oven4='20.04'.split('.')
+Telec1, Telec2='21.04'.split('.')
+Telec3, Telec4='20.05'.split('.')
+Blizneci1, Blizneci2='21.05'.split('.')
+Blizneci3, Blizneci4='21.06'.split('.')
+Rak1, Rak2='22.06'.split('.')
+Rak3, Rak4='22.07'.split('.')
+Lev1, Lev2='23.07'.split('.')
+Lev3, Lev4='23.08'.split('.')
+Deva1, Deva2='24.08'.split('.')
+Deva3, Deva4='23.09'.split('.')
+Vesi1, Vesi2='24.09'.split('.')
+Vesi3, Vesi4='23.10'.split('.')
+Scorpion1, Scorpion2='24.10'.split('.')
+Scorpion3, Scorpion4='22.11'.split('.')
+Strelec1, Strelec2='23.11'.split('.')
+Strelec3, Strelec4='22.12'.split('.')
+Kozerog1, Kozerog2='22.12'.split('.')
+Kozerog3, Kozerog4='20.01'.split('.')
+Vodolei1, Vodolei2='21.01'.split('.')
+Vodolei3, Vodolei4='20.02'.split('.')
+Ribi1, Ribi2='21.02'.split('.')
+Ribi3, Ribi4='20.03'.split('.')
+@dp.message(Command(commands=["start"]))
+async def process_start_command(message: Message):
+    await message.answer('Привет! Я на связи, напиши мне что-нибудь!')
+@dp.message (Command(commands=['help']))
+async def process_help_command(message : Message):
+    await message.answer('Напиши мне что-нибудь, и в ответ я пришлю тебе твое сообщение')
+@dp.message()
+async def send_echo(message: Message):
+    p_d, p_m = message.text.split('.')
+    p_d=int(p_d)
+    p_m=int(p_m)
+    if int (Oven1) <=p_d<=int (Oven3) and int (Oven2)<=p_m<=int(Oven4):
+        await message.reply(text= 'овен')
+    if int (Telec1) <=p_d<=int(Telec3) and int(Telec2)<=p_m<=int(Telec4):
+        await message.reply(text= 'телец')
+    if int(Blizneci1) <=p_d<=int(Blizneci3) and int(Blizneci2)<=p_m<=int(Blizneci4):
+        await message.reply(text= 'близнецы')
+    if int(Rak1)<=p_d<=int(Rak3) and int(Rak2)<=p_m<=int(Rak4):
+        await message.reply(text= 'рак') 
+    if int(Lev1)<=p_d<=int(Lev3) and int(Lev2)<=p_m<=int(Lev4):
+        await message.reply(text= 'лев') 
+    if int(Deva1) <=p_d<=int(Deva3) and int(Deva2)<=p_m<=int(Deva4):
+        await message.reply(text= 'дева')  
+    if int(Vesi1) <=p_d<=int(Vesi3) and int(Vesi2)<=p_m<=int(Vesi4):
+        await message.reply(text= 'весы')
+    if int(Scorpion1) <=p_d<=int(Scorpion3) and int(Scorpion2)<=p_m<=int(Scorpion4):
+        await message.reply(text= 'скорпион')
+    if int(Strelec1) <=p_d<=int(Strelec3) and int(Strelec2)<=p_m<=int(Strelec4):
+        await message.reply(text= 'стрелец')
+    if int(Kozerog1) <=p_d<=int(Kozerog3) and int(Kozerog2)<=p_m<=int(Kozerog4):
+        await message.reply(text= 'козерог')
+    if int(Vodolei1) <=p_d<=int(Vodolei3) and int(Vodolei2)<=p_m<=int(Vodolei4):
+        await message.reply(text= 'водолей')
+    if int(Ribi1) <=p_d<=int(Ribi3) and int(Ribi2)<=p_m<=int(Ribi4):
+         await message.reply(text= 'рыбы')
+
+if __name__ == '__main__':
+    dp.run_polling(bot)

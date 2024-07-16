@@ -1,0 +1,28 @@
+from aiogram import Bot, Dispatcher
+from aiogram.filters import Command
+from aiogram.types import Message
+global a
+a=[]
+BOT_TOKEN = '7384463250:AAFZVf8C7ngwB6630zHw_HOIhYd2MlgpZsc'
+bot = Bot(token=BOT_TOKEN)
+dp = Dispatcher()
+@dp.message(Command(commands=["start"]))
+async def process_start_command(message: Message):
+    await message.answer('Привет! Я на связи, напиши мне что-нибудь!')
+@dp.message(Command(commands=['help']))
+async def process_help_command(message: Message):
+    await message.answer('Напиши мне что-нибудь, и в ответ я пришлю тебе твое сообщение')
+@dp.message()
+async def send_echo(message: Message):
+    global a 
+    z=message.text.split()
+    if z[0]=='добавить':
+        a.append(z[1])
+    if z[0]=='удалить по значению':
+        a.remove(z[1])
+    if z[0]=='удалить по номеру':
+        a.pop(z[1])
+    if z[0]=='показать':
+        await message.reply(text = a) 
+if __name__ == '__main__':
+    dp.run_polling(bot)

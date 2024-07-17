@@ -1,0 +1,125 @@
+from aiogram import Bot, Dispatcher
+from aiogram.filters import Command
+from aiogram.types import Message
+BOT_TOKEN = '7384463250:AAFZVf8C7ngwB6630zHw_HOIhYd2MlgpZsc'
+bot = Bot(token=BOT_TOKEN)
+dp = Dispatcher()
+@dp.message(Command(commands=["start"]))
+async def process_start_command(message: Message):
+    await message.answer('Привет! Я на связи, напиши мне что-нибудь.')
+@dp.message(Command(commands=['help']))
+async def process_help_command(message: Message):
+    await message.answer(
+        'Напиши мне что-нибудь, и в ответ я пришлю тебе твое сообщение')
+@dp.message()
+async def send_echo(message: Message):
+    await message.reply(text=message.text)
+
+
+
+
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    dp.run_polling(bot)
+
+
+
+
+Germania='Berlin'
+Franzia='Parish'
+Welikobritania='London'
+Irlandia='Dublin'
+Niderlandi='Amsterdam'
+Belgia='Brussel'
+Shwezaria='Bern'
+Awstria='Wena'
+Dania='Kopengagen'
+Norwegia='Oslo' 
+Shwezia='Stokgolm' 
+Finlandia='Helsinki' 
+Polsha='Warshawa' 
+Chehia='Praga' 
+Slowakia='Batislawa' 
+Wengria='Budapesht' 
+Ruminia='Buharest' 
+Bolgaria='Sofia' 
+Serbia='Belgrad' 
+Horwatia='Zagreb' 
+Slowenia='Lublana' 
+Bosnia,Gerzogowna='Saraevo' 
+Makedonia='Skope' 
+Kitai='Pekin' 
+Mongolia='UlanBator' 
+Aponia='Tokio' 
+Kndr='Phenian' 
+Korea='Seul' 
+Wetnam='Hanoi' 
+Laos='Wentan' 
+Kambodga='Pnompen' 
+Fillipini='Manila' 
+Indonezia='Dgakarta' 
+Malaizia='KualaLumpur' 
+Tailand='Bangkok' 
+Manma='Angon' 
+Bangladesh='Dakka' 
+India='NuDeli' 
+ShriLanka='Kolombo' 
+Nepal='Katmandu' 
+Butan='Thimphu' 
+Pakistan='Islamabad' 
+Afganistan='Kabul' 
+Iran='Tegeran' 
+Turcia='Ankara' 
+Siria='Damask' 
+Egipet='Kair' 
+Sudan='Dartum' 
+Livia='Tripoli' 
+Tunis='Tunis' 
+Algir='Algir' 
+Marokko='Rabat' 
+Senegal='Dakar' 
+Gwinea='Konakri' 
+Mali='Bamako' 
+Gana='Akkra' 
+Nigeria='Abudga' 
+Niger='Niamei' 
+Cad='Ndgamena' 
+Gabon='Librewil' 
+Kongo='Brazzawil' 
+DRKongo='Kinshasa' 
+Angola='Luanda' 
+Efiopia='AddisAbeba' 
+Somali='Magadisho' 
+Kenia='Neirobi' 
+Tanzania='Dodoma' 
+Zambia='Lusaka' 
+Malavi='Lilongwe' 
+SSHA='Washington' 
+Kanada='Ottawa' 
+Meksika='Mehiko' 
+Gwatemala='Gwatemala' 
+Ganduras='Tegusigalpa' 
+Salvador='SanSalwador' 
+Nikaragua='Managua' 
+KostaRika='SanHose' 
+Panama='Panama' 
+Kuba='Gawana' 
+Amaika='Kingston' 
+Kolumbia='SantaFeDeBogota' 
+Wenesuela='Karakas' 
+Ekvador='Kito' 
+Peru='Lima' 
+Boliwia='Sukre' 
+Chili='Santago' 
+Brazilia='Brazilia' 
+Paragvai='Asunson' 
+Urugvai='Montewideo' 
+Argentina='BuenosAres' 
+Gaiti='PortOPrens' 
+Dominik='SantoDomingo'
